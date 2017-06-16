@@ -10,6 +10,9 @@
 
 'use strict';
 
+var clientId = "8538a1744a7fdaa59981232897501e04";
+
+
 document.querySelector('.submitBtn').addEventListener("click", function() {
     console.log(document.querySelector('#artistSearch').value);
 
@@ -18,9 +21,24 @@ document.querySelector('.submitBtn').addEventListener("click", function() {
     getMusic(artist);
 });  
 
+document.querySelector('.results').addEventListener("click", function(e) {
+    console.log("results was clicked ");
+    var selectdId;
+    console.log("e.target = ", e.target);
+    console.log("e.target.nodeName ", e.target.nodeName);
+    if (e.target && (e.target.nodeName == 'IMG' || 'P' )) {
+        console.log("TARGETED", e.target.id);
+        selectedId = e.target.id.replace("artwork-", "");
+        document.querySelector('.music-player').src = stream_url
+    } else {
+
+        console.log("failed to TARGET");
+    }
+});
+
 function getMusic(artist) {
-    var api = "http://api.soundcloud.com/tracks?cliend_id=";
-    var clientId = "8538a1744a7fdaa59981232897501e04";
+    var api = "http://api.soundcloud.com/tracks?client_id=";
+    // var clientId = "8538a1744a7fdaa59981232897501e04";
     
     // var url = "http://api.soundcloud.com/tracks/13158665?client_id=8538a1744a7fdaa59981232897501e04";
     var url = "http://api.soundcloud.com/tracks?client_id=8538a1744a7fdaa59981232897501e04&q=%22hazzard%22";
@@ -29,7 +47,7 @@ function getMusic(artist) {
     console.log(url);
     console.log(url1);
     
-    fetch(url).then(function(response) {
+    fetch(url1).then(function(response) {
     // handle HTTP response
         response.json().then(function(data) {  
             console.log("Here is the data:", data);
@@ -47,21 +65,28 @@ function getMusic(artist) {
 
 function createTrack(tracks, i) {
     console.log(tracks[i].title);
+    if (i == 0) {
+        document.querySelector("audio").src = tracks[i].stream_url + "?client_id=" + clientId;
+    }
 
     var resultsSection = document.querySelector(".results");
     var newDiv = document.createElement('div');
     newDiv.className = 'track';
+    newDiv.id = 'track-' + i;
     resultsSection.appendChild(newDiv);
 
     var artwork = document.createElement('img');
     artwork.src = tracks[i].artwork_url;
+    artwork.id = 'artwork-' + i;
     newDiv.appendChild(artwork);
 
     var title = document.createElement('p');
     title.innerHTML = tracks[i].title;
+    title.id = 'title-' + i;
     newDiv.appendChild(title);
 
     var band = document.createElement('p');
     band.innerHTML = tracks[i].user.username;
+    band.id = 'band-' + i;
     newDiv.appendChild(band);
 }
