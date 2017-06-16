@@ -1,0 +1,89 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+    text-align: center;
+    margin: 0 auto;
+    width: 80vw;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    padding: 30px 0 50px 0;
+    background-color: #F5F5F5;
+}
+
+.container {
+    background-color: #F5F5F5;
+    /*height: 100vh;*/
+    height: 900px;
+}
+
+audio {
+    width: 70vw;
+    padding: 20px;
+}
+
+#line1 {
+    text-align: center;
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    border-bottom: 2px solid gray;
+}
+
+#line2 {
+    text-align: center;
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    border-bottom: 2px solid gray;
+}
+
+input[type="text"] {
+    background-color: #FFFFFF;
+    /*width: 400px;*/
+    width: 60vw;
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+input[type="button"] {
+    font-weight: 600;
+    padding: 10px 30px;
+    margin-left: 20px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.results {
+    height: 800px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.track {
+    width: 20%;
+}
+
+p {
+    padding: 10px;
+}
+
+img {
+    width: 90%;
+}
