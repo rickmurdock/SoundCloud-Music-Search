@@ -10,13 +10,14 @@
 
 'use strict';
 
-var clientId = "8538a1744a7fdaa59981232897501e04";
-
+const api = "http://api.soundcloud.com/tracks";
+const clientId = "?client_id=8538a1744a7fdaa59981232897501e04";
+var resultsSection = document.querySelector(".results");
 
 document.querySelector('.submitBtn').addEventListener("click", function() {
     console.log(document.querySelector('#artistSearch').value);
 
-    var artist = document.querySelector('#artistSearch').value
+    let artist = document.querySelector('#artistSearch').value
 
     getMusic(artist);
 });  
@@ -37,16 +38,19 @@ document.querySelector('.results').addEventListener("click", function(e) {
 });
 
 function getMusic(artist) {
-    var api = "http://api.soundcloud.com/tracks?client_id=";
+
+    resultsSection.innerHTML = "";
+    // var api = "http://api.soundcloud.com/tracks?client_id=";
     // var clientId = "8538a1744a7fdaa59981232897501e04";
     
     // var url = "http://api.soundcloud.com/tracks/13158665?client_id=8538a1744a7fdaa59981232897501e04";
     var url = "http://api.soundcloud.com/tracks?client_id=8538a1744a7fdaa59981232897501e04&q=%22hazzard%22";
     
     var url1 = api + clientId + "&q=%22" + artist + "%22";
-    console.log(url);
-    console.log(url1);
+    // console.log(url);
+    // console.log(url1);
     
+
     fetch(url1).then(function(response) {
     // handle HTTP response
         response.json().then(function(data) {  
@@ -64,12 +68,17 @@ function getMusic(artist) {
 }
 
 function createTrack(tracks, i) {
+
+    // var resultsSection = document.querySelector(".results");
+    // resultsSection.innerHTML = "";
+
+    // Default to player to first track
     console.log(tracks[i].title);
     if (i == 0) {
-        document.querySelector("audio").src = tracks[i].stream_url + "?client_id=" + clientId;
+        document.querySelector("audio").src = tracks[i].stream_url + clientId;
     }
 
-    var resultsSection = document.querySelector(".results");
+    
     var newDiv = document.createElement('div');
     newDiv.className = 'track';
     newDiv.id = 'track-' + i;
