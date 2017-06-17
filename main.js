@@ -24,34 +24,38 @@ document.querySelector('.submitBtn').addEventListener("click", function() {
 
 document.querySelector('.results').addEventListener("click", function(e) {
     console.log("results was clicked ");
-    var selectdId;
+     var selectedId;
+    console.log("e", e);
     console.log("e.target = ", e.target);
-    console.log("e.target.nodeName ", e.target.nodeName);
-    if (e.target && (e.target.nodeName == 'IMG' || 'P' )) {
-        console.log("TARGETED", e.target.id);
+    console.log("e.target.title = ", e.target.title);
+    // console.log("e.target.nodeName ", e.target.nodeName);
+    // if (e.target && (e.target.nodeName == 'IMG' || 'P' )) {
+    //     console.log("TARGETED", e.target.id);
         selectedId = e.target.id.replace("artwork-", "");
-        document.querySelector('.music-player').src = stream_url
-    } else {
+    //     document.querySelector('.music-player').src = stream_url
+    // } else {
 
-        console.log("failed to TARGET");
-    }
+    //     console.log("failed to TARGET");
+    // }
+
+    // document.querySelector(".music-player").src = e.target.title + clientId;
+
+    document.querySelector("audio").src = document.querySelector("#track-" + selectedId).title + clientId;
 });
 
 function getMusic(artist) {
 
     resultsSection.innerHTML = "";
-    // var api = "http://api.soundcloud.com/tracks?client_id=";
-    // var clientId = "8538a1744a7fdaa59981232897501e04";
     
     // var url = "http://api.soundcloud.com/tracks/13158665?client_id=8538a1744a7fdaa59981232897501e04";
-    var url = "http://api.soundcloud.com/tracks?client_id=8538a1744a7fdaa59981232897501e04&q=%22hazzard%22";
+    // var url = "http://api.soundcloud.com/tracks?client_id=8538a1744a7fdaa59981232897501e04&q=%22hazzard%22";
     
-    var url1 = api + clientId + "&q=%22" + artist + "%22";
+    let url = api + clientId + "&q=%22" + artist + "%22";
     // console.log(url);
     // console.log(url1);
     
 
-    fetch(url1).then(function(response) {
+    fetch(url).then(function(response) {
     // handle HTTP response
         response.json().then(function(data) {  
             console.log("Here is the data:", data);
@@ -68,33 +72,32 @@ function getMusic(artist) {
 }
 
 function createTrack(tracks, i) {
-
-    // var resultsSection = document.querySelector(".results");
-    // resultsSection.innerHTML = "";
-
-    // Default to player to first track
-    console.log(tracks[i].title);
-    if (i == 0) {
-        document.querySelector("audio").src = tracks[i].stream_url + clientId;
-    }
-
+    let newDiv;
+    let artwork; 
+    let title;
+    let band;
     
-    var newDiv = document.createElement('div');
+    newDiv = document.createElement('div');
     newDiv.className = 'track';
     newDiv.id = 'track-' + i;
+    newDiv.title = tracks[i].stream_url;
     resultsSection.appendChild(newDiv);
 
-    var artwork = document.createElement('img');
-    artwork.src = tracks[i].artwork_url;
+    artwork = document.createElement('img');
+    if (tracks[i].artwork_url != null) {
+        artwork.src = tracks[i].artwork_url;
+    } else {
+        artwork.src ="No_image_available.png";
+    }
     artwork.id = 'artwork-' + i;
     newDiv.appendChild(artwork);
 
-    var title = document.createElement('p');
+    title = document.createElement('p');
     title.innerHTML = tracks[i].title;
     title.id = 'title-' + i;
     newDiv.appendChild(title);
 
-    var band = document.createElement('p');
+    band = document.createElement('p');
     band.innerHTML = tracks[i].user.username;
     band.id = 'band-' + i;
     newDiv.appendChild(band);
