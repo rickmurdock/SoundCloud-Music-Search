@@ -12,48 +12,26 @@
 
 const api = "http://api.soundcloud.com/tracks";
 const clientId = "?client_id=8538a1744a7fdaa59981232897501e04";
+
+var marqueeText = document.querySelector('marquee');
 var resultsSection = document.querySelector(".results");
 
 document.querySelector('.submitBtn').addEventListener("click", function() {
-    console.log(document.querySelector('#artistSearch').value);
 
     let artist = document.querySelector('#artistSearch').value
-
     getMusic(artist);
 });  
 
 document.querySelector('.results').addEventListener("click", function(e) {
-    console.log("results was clicked ");
-     var selectedId;
-    console.log("e", e);
-    console.log("e.target = ", e.target);
-    console.log("e.target.title = ", e.target.title);
-    // console.log("e.target.nodeName ", e.target.nodeName);
-    // if (e.target && (e.target.nodeName == 'IMG' || 'P' )) {
-    //     console.log("TARGETED", e.target.id);
-        selectedId = e.target.id.replace("artwork-", "");
-    //     document.querySelector('.music-player').src = stream_url
-    // } else {
-
-    //     console.log("failed to TARGET");
-    // }
-
-    // document.querySelector(".music-player").src = e.target.title + clientId;
-
+    var selectedId = e.target.id.replace("artwork-", "");
     document.querySelector("audio").src = document.querySelector("#track-" + selectedId).title + clientId;
+    marqueeText.innerHTML = document.querySelector('#title-' + selectedId).innerHTML;
 });
 
 function getMusic(artist) {
 
     resultsSection.innerHTML = "";
-    
-    // var url = "http://api.soundcloud.com/tracks/13158665?client_id=8538a1744a7fdaa59981232897501e04";
-    // var url = "http://api.soundcloud.com/tracks?client_id=8538a1744a7fdaa59981232897501e04&q=%22hazzard%22";
-    
     let url = api + clientId + "&q=%22" + artist + "%22";
-    // console.log(url);
-    // console.log(url1);
-    
 
     fetch(url).then(function(response) {
     // handle HTTP response
@@ -90,6 +68,7 @@ function createTrack(tracks, i) {
         artwork.src ="No_image_available.png";
     }
     artwork.id = 'artwork-' + i;
+    artwork.className = 'artwork'
     newDiv.appendChild(artwork);
 
     title = document.createElement('p');
@@ -100,5 +79,6 @@ function createTrack(tracks, i) {
     band = document.createElement('p');
     band.innerHTML = tracks[i].user.username;
     band.id = 'band-' + i;
+    band.className = 'band';
     newDiv.appendChild(band);
 }

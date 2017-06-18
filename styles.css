@@ -18,67 +18,51 @@ body {
     width: 80vw;
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("oldRadio.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    opacity: 0.8;
 }
 
 h1 {
-    font-size: 2.8em;
+    font-family: 'Spicy Rice', cursive;
+    font-size: 4em;
+    color: #FFFFFF;
     text-align: center;
     padding: 30px 0 50px 0;
     /*background-color: #F5F5F5;*/
+    /*opacity: 1.0;*/
 }
 
 header {
-    opacity: 0.6;
+    /*opacity: 0.6;*/
     border-radius: 90px;
 }
 
 .container {
-    background-color: #F5F5F5;
+    /*background-color: #F5F5F5;*/
     /*height: 100vh;*/
     height: 900px;
     /*opacity: .6;*/
 }
 
 audio {
-    width: 70vw;
+    width: 50vw;
     padding: 20px;
-}
-
-#line1 {
-    text-align: center;
-    width: 90%;
-    padding: 10px;
-    margin: 20px auto;
-    border-bottom: 2px solid gray;
-}
-
-#line2 {
-    text-align: center;
-    width: 90%;
-    padding: 10px;
-    margin: 20px auto;
-    border-bottom: 2px solid gray;
 }
 
 input[type="text"] {
     background-color: #FFFFFF;
     /*width: 400px;*/
-    width: 60vw;
+    width: 40vw;
     padding: 10px;
+    border-radius: 30px;
     border: 2px solid gray;
 }
 
 input[type="button"] {
     font-weight: 600;
-    padding: 10px 30px;
+    padding: 10px 40px;
     margin-left: 20px;
     border: 2px solid gray;
-    border-radius: 5px;
+    border-radius: 30px;
+    background: tan;
 }
 
 .results {
@@ -97,4 +81,44 @@ p {
 
 img {
     width: 90%;
+}
+
+label {
+    text-align: center;
+}
+
+marquee {
+    width: 400px;
+}
+
+.results {
+    color: #FFFFFF;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("oldRadio.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.5;
+    filter: grayscale(.5);
+    z-index: -1;
+}
+
+#marquee {
+    color: white;
+}
+
+marquee {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.artwork:hover {
+    transform: rotate(3deg);
 }

@@ -1,55 +1,31 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>SoundCloud Music Search</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="styles.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Really Awesome Music Site</h1>
-        <div class="wrapper">
-
-            <audio controls src="">
-            
-            </audio>
-            
-            <div id="line1"></div>
-            <form action="">
-                <input type="text" placeholder="Search for Artist" name="" value="">
-                <input type="submit" value="Search">
-            </form>
-            <div id="line2"></div>
-        </div>
-        <script src="main.js"></script>
-        </body>
-</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>SoundCloud Music Search</title>
+  <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="background"></div>
   <div class="container">
     <header>
-      <h1>Really Awesome Music Site</h1>
+      <h1>Murdock's Music Machine</h1>
     </header>
     <section class="player">
       <audio class="music-player" controls="controls" autoplay src=""></audio>
+      <br>
+      <div id="marquee">
+        Now Playing: <marquee></marquee>
+      </div>
+      <br>
     </section>
-    <div id="line1"></div>
     <section class="search">
-    <!--<form class="search-form" onsubmit="artistSearch()">-->
       <form class="search-form">
         <input type="text" id="artistSearch" placeholder="Search for Artist" name="artistSearch" value="">
-        <input type="button" class="submitBtn" value="click">
+        <input type="button" class="submitBtn" value="Search">
       </form>
-      <div id="line2"></div>
     </section>
     <section class="results">
-        
     </section>
   </div>
   <script src="main.js"></script>
