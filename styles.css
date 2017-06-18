@@ -39,7 +39,6 @@ header {
     /*background-color: #F5F5F5;*/
     /*height: 100vh;*/
     height: 900px;
-    /*opacity: .6;*/
 }
 
 audio {
@@ -49,7 +48,6 @@ audio {
 
 input[type="text"] {
     background-color: #FFFFFF;
-    /*width: 400px;*/
     width: 40vw;
     padding: 10px;
     border-radius: 30px;
