@@ -17,7 +17,6 @@ var marqueeText = document.querySelector('marquee');
 var resultsSection = document.querySelector(".results");
 
 document.querySelector('.submitBtn').addEventListener("click", function() {
-// event.preventDefault();
     let artist = document.querySelector('#artistSearch').value
     getMusic(artist);
 });  
@@ -29,20 +28,14 @@ document.querySelector('.results').addEventListener("click", function(e) {
 });
 
 document.querySelector("#artistSearch").addEventListener("keyup", function(event) {
-    
     event.preventDefault();
-    // window.alert(event.keyCode);
-    console.log(event.keyCode);
     if (event.keyCode == 13) {
-        window.alert("YESSS");
         document.querySelector(".submitBtn").click();
     }
 });
 
-
 document.querySelector('.search').addEventListener("submit", function() {
-event.preventDefault();
-    
+    event.preventDefault();
 });  
 
 function getMusic(artist) {
