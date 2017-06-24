@@ -1,7 +1,5 @@
-# SoundCloud-Music-Search
-The Iron Yard Project: Week 4 - Weekly Assignment
-
 # SoundCloud Music Search
+The Iron Yard Project: Week 4 - Weekly Assignment
 
 As your final project for this portion of the course, let's take stock of all you have learned and build a real application that is useful and you can share with friends. For this app, we will be using SoundCloud and specifically their Developer API to pull data from.
 
