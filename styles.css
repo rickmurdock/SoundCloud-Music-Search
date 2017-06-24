@@ -13,18 +13,18 @@
 }
 
 body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin: 0 auto;
     width: 80vw;
-    background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
+    color: tan;
     font-family: 'Spicy Rice', cursive;
     font-weight: 100;
     font-size: 4em;
-    color: tan;
     text-align: center;
     padding: 30px 0 50px 0;
     text-shadow: 1px 1px 2px black, 0 0 25px tan, 0 0 5px chocolate;
@@ -40,8 +40,8 @@ header {
 }
 
 audio {
-    width: 50vw;
     padding: 20px;
+    width: 50vw;
 }
 
 .search {
@@ -52,8 +52,8 @@ input[type="text"] {
     background-color: #FFFFFF;
     width: 40vw;
     padding: 10px;
-    border-radius: 30px;
     border: 2px solid gray;
+    border-radius: 30px;
 }
 
 input[type="button"] {
@@ -70,10 +70,10 @@ input[type="button"] {
     position: relative;
     top: -4px;
     font-family: 'Spicy Rice', cursive;
+    font-size: 1.5em;
     font-weight: 100;
     color: #FFFFFF;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-size: 1.5em;
 }
 
 .submitBtn:hover {
@@ -86,7 +86,6 @@ input[type="button"] {
 }
 
 .results {
-    /*height: 800px;*/
     height: 700px;
     display: flex;
     flex-flow: row wrap;
@@ -109,8 +108,8 @@ label {
 }
 
 marquee {
-    width: 400px;
     color: chocolate;
+    width: 400px;
 }
 
 .results {
@@ -137,14 +136,14 @@ marquee {
     color: tan;
 }
 
-/*depricated in html5
- need to redo.*/
+/* Marquee tag is depricated in html5
+ need to redo later.*/
 marquee {
-    padding-left: 20px;
     margin-top: 10px;
+    padding-left: 20px;
 }
 
 .artwork:hover {
-    transform: rotate(3deg);
     cursor: pointer;
+    transform: rotate(3deg);
 }

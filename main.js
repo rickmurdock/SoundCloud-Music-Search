@@ -60,10 +60,10 @@ function getMusic(artist) {
 }
 
 function createTrack(tracks, i) {
-    let newDiv;
-    let artwork; 
-    let title;
+    let artwork;
     let band;
+    let newDiv;
+    let title;
     
     newDiv = document.createElement('div');
     newDiv.className = 'track';
@@ -75,7 +75,7 @@ function createTrack(tracks, i) {
     if (tracks[i].artwork_url != null) {
         artwork.src = tracks[i].artwork_url;
     } else {
-        artwork.src ="No_image_available.png";
+        artwork.src ="noImage.png";
     }
     artwork.id = 'artwork-' + i;
     artwork.className = 'artwork'
