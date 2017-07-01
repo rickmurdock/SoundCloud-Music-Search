@@ -1,6 +1,12 @@
 # SoundCloud Music Search
 The Iron Yard Project: Week 4 - Weekly Assignment
 
+---
+
+View the finished project: [Murdock's Music Machine](http://musicmachine.surge.sh/)
+
+---
+
 As your final project for this portion of the course, let's take stock of all you have learned and build a real application that is useful and you can share with friends. For this app, we will be using SoundCloud and specifically their Developer API to pull data from.
 
 You'll use this data to pull songs based on a search that your user performs. Here is an idea of what the [end result](https://tiy-learn-content.s3.amazonaws.com/c888498b-musicapp.jpg) should look like, though you can have fun with the design.
